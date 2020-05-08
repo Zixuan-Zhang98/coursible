@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.seldom.TestMapper">
+<mapper namespace="com.seldom.server.mapper.TestMapper">
 
-    <select id="list" resultType="com.seldom.Test">
+    <select id="list" resultType="com.seldom.server.domain.Test">
         select `id`, `name` from `test`
     </select>
 
