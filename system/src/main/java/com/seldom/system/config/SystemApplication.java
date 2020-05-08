@@ -1,4 +1,4 @@
-package com.seldom.system;
+package com.seldom.system.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
