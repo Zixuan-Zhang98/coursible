@@ -1,7 +1,7 @@
 package com.seldom.system.controller;
 
-import com.seldom.system.domain.Test;
-import com.seldom.system.service.TestService;
+import com.seldom.server.domain.Test;
+import com.seldom.server.service.TestService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
