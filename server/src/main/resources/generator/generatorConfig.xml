@@ -11,9 +11,9 @@
         <property name="endingDelimiter" value="`"/>
 
         <!--覆盖生成XML文件-->
-<!--        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
         <!-- 生成的实体类添加toString()方法 -->
-        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
 
         <!-- 不生成注释 -->
         <commentGenerator>
