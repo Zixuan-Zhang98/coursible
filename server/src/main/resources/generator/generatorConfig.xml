@@ -41,21 +41,21 @@
                              type="XMLMAPPER" />
         <!--加上 schema 指定特定的数据库-->
 <!--        <table tableName="test" domainObjectName="Test"/>-->
-        <table schema="courseimooc" tableName="test" domainObjectName="Test"/>
-<!--        <table tableName="chapter" domainObjectName="Chapter"/>-->
-<!--        <table tableName="section" domainObjectName="Section"/>-->
-<!--        <table tableName="course" domainObjectName="Course"/>-->
-<!--        <table tableName="course_content" domainObjectName="CourseContent"/>-->
-<!--        <table tableName="course_content_file" domainObjectName="CourseContentFile"/>-->
-<!--        <table tableName="teacher" domainObjectName="Teacher"/>-->
-<!--        <table tableName="file" domainObjectName="File"/>-->
-<!--        <table tableName="user" domainObjectName="User"/>-->
-<!--        <table tableName="resource" domainObjectName="Resource"/>-->
-<!--        <table tableName="role" domainObjectName="Role"/>-->
-<!--        <table tableName="role_resource" domainObjectName="RoleResource"/>-->
-<!--        <table tableName="role_user" domainObjectName="RoleUser"/>-->
-<!--        <table tableName="member" domainObjectName="Member"/>-->
-<!--        <table tableName="sms" domainObjectName="Sms"/>-->
-<!--        <table tableName="member_course" domainObjectName="MemberCourse"/>-->
+<!--        <table schema="courseimooc" tableName="test" domainObjectName="Test"/>-->
+        <table schema="courseimooc" tableName="chapter" domainObjectName="Chapter"/>
+<!--        <table schema="courseimooc" tableName="section" domainObjectName="Section"/>-->
+<!--        <table schema="courseimooc" tableName="course" domainObjectName="Course"/>-->
+<!--        <table schema="courseimooc" tableName="course_content" domainObjectName="CourseContent"/>-->
+<!--        <table schema="courseimooc" tableName="course_content_file" domainObjectName="CourseContentFile"/>-->
+<!--        <table schema="courseimooc" tableName="teacher" domainObjectName="Teacher"/>-->
+<!--        <table schema="courseimooc" tableName="file" domainObjectName="File"/>-->
+<!--        <table schema="courseimooc" tableName="user" domainObjectName="User"/>-->
+<!--        <table schema="courseimooc" tableName="resource" domainObjectName="Resource"/>-->
+<!--        <table schema="courseimooc" tableName="role" domainObjectName="Role"/>-->
+<!--        <table schema="courseimooc" tableName="role_resource" domainObjectName="RoleResource"/>-->
+<!--        <table schema="courseimooc" tableName="role_user" domainObjectName="RoleUser"/>-->
+<!--        <table schema="courseimooc" tableName="member" domainObjectName="Member"/>-->
+<!--        <table schema="courseimooc" tableName="sms" domainObjectName="Sms"/>-->
+<!--        <table schema="courseimooc" tableName="member_course" domainObjectName="MemberCourse"/>-->
     </context>
 </generatorConfiguration>
