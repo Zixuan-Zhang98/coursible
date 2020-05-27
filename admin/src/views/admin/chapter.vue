@@ -1027,9 +1027,17 @@
         name: 'welcome',
         mounted: function () {
             // sidebar激活样式方法一
-            // this.$parent.activeSidebar("business-chapter-sidebar")
+            // this.$parent.activeSidebar("business-chapter-sidebar"
+            let _this = this;
+            _this.list();
         },
         methods: {
+            list() {
+                let _this = this;
+                _this.$ajax.get('http://127.0.0.1:9002/business/admin/chapter/list').then((response) => {
+                    console.log("Result from querying chapter table: ", response);
+                })
+            }
         }
     }
 </script>
