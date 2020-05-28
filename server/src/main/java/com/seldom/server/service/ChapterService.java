@@ -7,6 +7,7 @@ import com.seldom.server.domain.ChapterExample;
 import com.seldom.server.dto.ChapterDto;
 import com.seldom.server.dto.PageDto;
 import com.seldom.server.mapper.ChapterMapper;
+import com.seldom.server.util.UuidUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,13 @@ public class ChapterService {
         }
         pageDto.setList(chapterDtoList);
 //        return chapterMapper.selectByExample(null);  // select * from chapter;
+    }
+
+    public void save(ChapterDto chapterDto) {
+        chapterDto.setId(UuidUtil.getShortUuid());
+        Chapter chapter = new Chapter();
+        BeanUtils.copyProperties(chapterDto, chapter);
+        chapterMapper.insert(chapter);
     }
 
 }

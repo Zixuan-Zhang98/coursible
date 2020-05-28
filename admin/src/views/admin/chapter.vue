@@ -99,20 +99,20 @@
                             <div class="form-group">
                                 <label for="chapterName" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="chapterName" placeholder="Name">
+                                    <input v-model="chapter.name" type="text" class="form-control" id="chapterName" placeholder="Name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="courseId" class="col-sm-2 control-label">Course ID</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="courseId" placeholder="Course ID">
+                                    <input v-model="chapter.courseId" type="text" class="form-control" id="courseId" placeholder="Course ID">
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Save</button>
+                        <button v-on:click="save" type="button" class="btn btn-primary">Save</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
@@ -127,6 +127,7 @@
         components: {Pagination},
         data: function() {
           return {
+              chapter: {},
               chapters: []
           }
         },
@@ -144,6 +145,7 @@
 
                 // $(".modal").modal("hide");
             },
+
             list(page) {
                 let _this = this;
                 _this.$ajax.post('http://127.0.0.1:9000/business/admin/chapter/list', {
@@ -153,6 +155,13 @@
                     console.log("Result from querying chapter table: ", response);
                     _this.chapters = response.data.list;
                     _this.$refs.pagination.render(page, response.data.total)
+                })
+            },
+
+            save(page) {
+                let _this = this;
+                _this.$ajax.post('http://127.0.0.1:9000/business/admin/chapter/save', _this.chapter).then((response) => {
+                    console.log("Save a new chapter: ", response);
                 })
             }
         }
