@@ -1,5 +1,6 @@
 package com.seldom.server.service;
 
+import com.github.pagehelper.PageHelper;
 import com.seldom.server.domain.Chapter;
 import com.seldom.server.domain.ChapterExample;
 import com.seldom.server.dto.ChapterDto;
@@ -18,6 +19,7 @@ public class ChapterService {
     private ChapterMapper chapterMapper;
 
     public List<ChapterDto> list() {
+        PageHelper.startPage(1, 1);
         ChapterExample chapterExample = new ChapterExample();
         List<Chapter> chapterList = chapterMapper.selectByExample(chapterExample);
         List<ChapterDto> chapterDtoList = new ArrayList<>();
