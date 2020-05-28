@@ -1,6 +1,11 @@
 <template>
     <div>
         <p>
+            <button v-on:click="add()" class="btn btn-white btn-default btn-round">
+                <i class="ace-icon fa fa-edit"></i>
+                New
+            </button>
+            &nbsp;
             <button v-on:click="list(1)" class="btn btn-white btn-default btn-round">
                 <i class="ace-icon fa fa-refresh"></i>
                 Refresh
@@ -10,13 +15,10 @@
         <table id="simple-table" class="table  table-bordered table-hover">
             <thead>
             <tr>
-
                 <th>ID</th>
                 <th>Name</th>
                 <th>Course ID</th>
                 <th>Operations</th>
-
-                <th></th>
             </tr>
             </thead>
 
@@ -55,27 +57,27 @@
                                 <li>
                                     <a href="#" class="tooltip-info" data-rel="tooltip"
                                        title="View">
-                                                                        <span class="blue">
-                                                                            <i class="ace-icon fa fa-search-plus bigger-120"></i>
-                                                                        </span>
+                                        <span class="blue">
+                                            <i class="ace-icon fa fa-search-plus bigger-120"></i>
+                                        </span>
                                     </a>
                                 </li>
 
                                 <li>
                                     <a href="#" class="tooltip-success" data-rel="tooltip"
                                        title="Edit">
-                                                                        <span class="green">
-                                                                            <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-                                                                        </span>
+                                        <span class="green">
+                                            <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+                                        </span>
                                     </a>
                                 </li>
 
                                 <li>
                                     <a href="#" class="tooltip-error" data-rel="tooltip"
                                        title="Delete">
-                                                                        <span class="red">
-                                                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                                                        </span>
+                                        <span class="red">
+                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                        </span>
                                     </a>
                                 </li>
                             </ul>
@@ -85,6 +87,36 @@
             </tr>
             </tbody>
         </table>
+        <div class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">New Chapter</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="chapterName" class="col-sm-2 control-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="chapterName" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="courseId" class="col-sm-2 control-label">Course ID</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="courseId" placeholder="Course ID">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
     </div>
 </template>
 
@@ -106,6 +138,12 @@
             _this.list(1);
         },
         methods: {
+            add() {
+                let _this = this;
+                $(".modal").modal("show");
+
+                // $(".modal").modal("hide");
+            },
             list(page) {
                 let _this = this;
                 _this.$ajax.post('http://127.0.0.1:9000/business/admin/chapter/list', {
