@@ -174,11 +174,28 @@
 
             del(id) {
                 let _this = this;
-                _this.$ajax.delete('http://127.0.0.1:9000/business/admin/chapter/delete/' + id).then((response) => {
-                    console.log("Delete a chapter: ", response);
-                    let resp = response.data;
-                    if (resp.success) {
-                        _this.list(1);
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+                        _this.$ajax.delete('http://127.0.0.1:9000/business/admin/chapter/delete/' + id).then((response) => {
+                            console.log("Delete a chapter: ", response);
+                            let resp = response.data;
+                            if (resp.success) {
+                                _this.list(1);
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Your file has been deleted.',
+                                    'success'
+                                )
+                            }
+                        })
                     }
                 })
             }
