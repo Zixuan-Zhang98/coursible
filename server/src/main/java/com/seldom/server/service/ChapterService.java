@@ -10,6 +10,7 @@ import com.seldom.server.mapper.ChapterMapper;
 import com.seldom.server.util.CopyUtil;
 import com.seldom.server.util.UuidUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -39,11 +40,26 @@ public class ChapterService {
     }
 
     public void save(ChapterDto chapterDto) {
-        chapterDto.setId(UuidUtil.getShortUuid());
-//        Chapter chapter = new Chapter();
-//        BeanUtils.copyProperties(chapterDto, chapter);
         Chapter chapter = CopyUtil.copy(chapterDto, Chapter.class);
+        if (StringUtils.isEmpty(chapterDto.getId())) {
+            this.insert(chapter);
+        } else {
+            this.update(chapter);
+        }
+    }
+
+    /**
+     * 新增
+     */
+    private void insert(Chapter chapter) {
+        chapter.setId(UuidUtil.getShortUuid());
         chapterMapper.insert(chapter);
     }
 
+    /**
+     * 更新
+     */
+    private void update(Chapter chapter) {
+        chapterMapper.updateByPrimaryKey(chapter);
+    }
 }
