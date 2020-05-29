@@ -5,7 +5,9 @@ import com.seldom.server.domain.Chapter;
 import com.seldom.server.dto.ChapterDto;
 import com.seldom.server.dto.PageDto;
 import com.seldom.server.dto.ResponseDto;
+import com.seldom.server.exception.ValidatorException;
 import com.seldom.server.service.ChapterService;
+import com.seldom.server.util.ValidatorUtil;
 import org.apache.ibatis.annotations.Delete;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +21,7 @@ import java.util.List;
 public class ChapterController {
 
     private static final Logger LOG = LoggerFactory.getLogger(ChapterController.class);
+    public static final String BUSINESS_NAME = "Chapter";
 
     @Resource
     private ChapterService chapterService;
@@ -36,6 +39,12 @@ public class ChapterController {
     @PostMapping("/save")
     public ResponseDto save(@RequestBody ChapterDto chapterDto ) {
         LOG.info("chapterDto: {}", chapterDto);
+
+        // 保存校验
+        ValidatorUtil.require(chapterDto.getName(), "Name");
+        ValidatorUtil.require(chapterDto.getCourseId(), "Course ID");
+        ValidatorUtil.length(chapterDto.getCourseId(), "Course ID", 1, 8);
+
         ResponseDto responseDto = new ResponseDto();
         chapterService.save(chapterDto);
         responseDto.setContent(chapterDto);
