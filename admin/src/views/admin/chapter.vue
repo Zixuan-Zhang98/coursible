@@ -172,34 +172,24 @@
                     if (resp.success) {
                         $("#form-modal").modal("hide");
                         _this.list(1);
-                        toast.success("Saved successfully!");
+                        Toast.success("Saved successfully!");
                     }
                 })
             },
 
             del(id) {
                 let _this = this;
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.value) {
-                        Loading.show();
-                        _this.$ajax.delete('http://127.0.0.1:9000/business/admin/chapter/delete/' + id).then((response) => {
-                            Loading.hide();
-                            console.log("Delete a chapter: ", response);
-                            let resp = response.data;
-                            if (resp.success) {
-                                _this.list(1);
-                                toast.success("Deleted!")
-                            }
-                        })
-                    }
+                Confirm.show("You won't be able to revert this!", function () {
+                    Loading.show();
+                    _this.$ajax.delete('http://127.0.0.1:9000/business/admin/chapter/delete/' + id).then((response) => {
+                        Loading.hide();
+                        console.log("Delete a chapter: ", response);
+                        let resp = response.data;
+                        if (resp.success) {
+                            _this.list(1);
+                            Toast.success("Deleted!");
+                        }
+                    })
                 })
             }
         }
