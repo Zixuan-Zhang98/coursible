@@ -133,6 +133,9 @@
             _this.list(1);
         },
         methods: {
+            /**
+             * 点击【新增】
+             */
             add() {
                 let _this = this;
                 _this.chapter = {};
@@ -140,6 +143,9 @@
                 // $("#form-modal").modal("hide");
             },
 
+            /**
+             * 点击【编辑】
+             */
             edit(chapter) {
                 let _this = this;
                 _this.chapter = $.extend({}, chapter);
@@ -147,6 +153,9 @@
                 // $("#form-modal").modal("hide");
             },
 
+            /**
+             * 列表查询
+             */
             list(page) {
                 let _this = this;
                 Loading.show();
@@ -162,6 +171,9 @@
                 })
             },
 
+            /**
+             * 点击【保存】
+             */
             save(page) {
                 let _this = this;
 
@@ -187,6 +199,9 @@
                 })
             },
 
+            /**
+             * 点击【删除】
+             */
             del(id) {
                 let _this = this;
                 Confirm.show("You won't be able to revert this!", function () {
