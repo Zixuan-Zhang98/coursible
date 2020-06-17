@@ -1,4 +1,4 @@
-package com.seldom.business.controller.admin;
+package com.seldom.${module}.controller.admin;
 
 import com.github.pagehelper.PageInfo;
 import com.seldom.server.domain.${Domain};
@@ -21,7 +21,7 @@ import java.util.List;
 public class ${Domain}Controller {
 
     private static final Logger LOG = LoggerFactory.getLogger(${Domain}Controller.class);
-    public static final String BUSINESS_NAME = "${Domain}";
+    public static final String BUSINESS_NAME = "${tableName}";
 
     @Resource
     private ${Domain}Service ${domain}Service;
