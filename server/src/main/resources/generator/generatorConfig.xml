@@ -42,8 +42,8 @@
         <!--加上 schema 指定特定的数据库-->
 <!--        <table tableName="test" domainObjectName="Test"/>-->
 <!--        <table schema="courseimooc" tableName="test" domainObjectName="Test"/>-->
-        <table schema="courseimooc" tableName="chapter" domainObjectName="Chapter"/>
-<!--        <table schema="courseimooc" tableName="section" domainObjectName="Section"/>-->
+<!--        <table schema="courseimooc" tableName="chapter" domainObjectName="Chapter"/>-->
+        <table schema="courseimooc" tableName="section" domainObjectName="Section"/>
 <!--        <table schema="courseimooc" tableName="course" domainObjectName="Course"/>-->
 <!--        <table schema="courseimooc" tableName="course_content" domainObjectName="CourseContent"/>-->
 <!--        <table schema="courseimooc" tableName="course_content_file" domainObjectName="CourseContentFile"/>-->
