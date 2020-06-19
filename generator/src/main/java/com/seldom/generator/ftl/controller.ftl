@@ -47,9 +47,6 @@ public class ${Domain}Controller {
         LOG.info("${domain}Dto: {}", ${domain}Dto);
 
         // 保存校验
-        ValidatorUtil.require(${domain}Dto.getName(), "Name");
-        ValidatorUtil.require(${domain}Dto.getCourseId(), "Course ID");
-        ValidatorUtil.length(${domain}Dto.getCourseId(), "Course ID", 1, 8);
 
         ResponseDto responseDto = new ResponseDto();
         ${domain}Service.save(${domain}Dto);

@@ -21,7 +21,7 @@ import java.util.List;
 public class SectionController {
 
     private static final Logger LOG = LoggerFactory.getLogger(SectionController.class);
-    public static final String BUSINESS_NAME = "Section";
+    public static final String BUSINESS_NAME = "section";
 
     @Resource
     private SectionService sectionService;
@@ -42,20 +42,17 @@ public class SectionController {
     /**
      * 保存，id有值时更新，无值时新增
      */
-//    @PostMapping("/save")
-//    public ResponseDto save(@RequestBody SectionDto sectionDto ) {
-//        LOG.info("sectionDto: {}", sectionDto);
-//
-//        // 保存校验
-//        ValidatorUtil.require(sectionDto.getName(), "Name");
-//        ValidatorUtil.require(sectionDto.getCourseId(), "Course ID");
-//        ValidatorUtil.length(sectionDto.getCourseId(), "Course ID", 1, 8);
-//
-//        ResponseDto responseDto = new ResponseDto();
-//        sectionService.save(sectionDto);
-//        responseDto.setContent(sectionDto);
-//        return responseDto;
-//    }
+    @PostMapping("/save")
+    public ResponseDto save(@RequestBody SectionDto sectionDto ) {
+        LOG.info("sectionDto: {}", sectionDto);
+
+        // 保存校验
+
+        ResponseDto responseDto = new ResponseDto();
+        sectionService.save(sectionDto);
+        responseDto.setContent(sectionDto);
+        return responseDto;
+    }
 
     /**
      * 删除
