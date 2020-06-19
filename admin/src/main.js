@@ -22,3 +22,5 @@ new Vue({
     router,
     render: h => h(App),
 }).$mount('#app');
+
+console.log("ENV: ", process.env.NODE_ENV)
