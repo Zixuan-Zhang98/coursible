@@ -1,9 +1,9 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="/logo.jpg" alt="coursible"></a>
+ <img height=150px src="logo.png" alt="coursible"></a>
 </p>
 
-<h3 align="center">Project Title</h3>
+<h3 align="center">coursible</h3>
 
 <div align="center">
 
@@ -16,7 +16,7 @@
 
 ---
 
-<p align="center"> Few lines describing your project.
+<p align="center"> A platform providing online courses anytime anywhere, even during this pandemic!
     <br> 
 </p>
 
